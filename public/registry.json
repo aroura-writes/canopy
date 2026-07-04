@@ -1,0 +1,94 @@
+{
+    "blog": [
+        {
+            "slug": "the-timeless-rose",
+            "title": "The Timeless Rose",
+            "description": "A journey through centuries of the world's most beloved flower — from ancient Persia to modern gardens.",
+            "date": "2026-06-28",
+            "readTime": "5 min read",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/6a3c0a2d4_generated_c6afbaed.png"
+        },
+        {
+            "slug": "lavender-fields-forever",
+            "title": "Lavender Fields Forever",
+            "description": "Discover the aromatic history of lavender, from Roman baths to the purple meadows of Provence.",
+            "date": "2026-06-20",
+            "readTime": "4 min read",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/8e92080fc_generated_1e26571c.png"
+        },
+        {
+            "slug": "cherry-blossoms-of-spring",
+            "title": "Cherry Blossoms of Spring",
+            "description": "The ephemeral beauty of sakura and its deep cultural significance in Japanese tradition.",
+            "date": "2026-06-12",
+            "readTime": "6 min read",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/b6dce2001_generated_9888b98b.png"
+        },
+        {
+            "slug": "the-golden-sunflower",
+            "title": "The Golden Sunflower",
+            "description": "How the sunflower followed the sun across continents and inspired artists from Van Gogh to modern day.",
+            "date": "2026-06-05",
+            "readTime": "4 min read",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/bd77d653a_generated_2549b75a.png"
+        }
+    ],
+    "gallery": [
+        {
+            "slug": "ancient-forest-canopy",
+            "title": "Ancient Forest Canopy",
+            "category": "Forests",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/7096c5daa_generated_f48b17b6.png"
+        },
+        {
+            "slug": "morning-dew-on-moss",
+            "title": "Morning Dew on Moss",
+            "category": "Forests",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/8c3957a8a_generated_b4e8e7c9.png"
+        },
+        {
+            "slug": "turquoise-shoreline",
+            "title": "Turquoise Shoreline",
+            "category": "Oceans",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/a25172d98_generated_859c01a6.png"
+        },
+        {
+            "slug": "golden-desert-dunes",
+            "title": "Golden Desert Dunes",
+            "category": "Deserts",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/2c7a86873_generated_9b8c61ba.png"
+        },
+        {
+            "slug": "tropical-cascade",
+            "title": "Tropical Cascade",
+            "category": "Waterfalls",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/7a5d7227a_generated_e5875044.png"
+        },
+        {
+            "slug": "redwood-forest-path",
+            "title": "Redwood Forest Path",
+            "category": "Forests",
+            "image": "https://media.base44.com/images/public/6a461c9d99251a01f4848a69/67fcfcf6b_generated_dc629dbe.png"
+        }
+    ],
+    "literacy": [
+        {
+            "slug": "understanding-ecosystems",
+            "title": "Understanding Ecosystems",
+            "description": "Learn about the delicate balance of nature's interconnected systems and how every organism plays a vital role.",
+            "icon": "🌿"
+        },
+        {
+            "slug": "conservation-in-action",
+            "title": "Conservation in Action",
+            "description": "Practical tips and inspiring stories about protecting our planet's precious natural resources.",
+            "icon": "🛡️"
+        },
+        {
+            "slug": "the-water-cycle",
+            "title": "The Water Cycle",
+            "description": "From mountain peaks to ocean depths — follow the extraordinary journey of every water droplet.",
+            "icon": "💧"
+        }
+    ]
+}
