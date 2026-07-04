@@ -189,11 +189,41 @@ export function SectionList() {
   const { section: sectionSlug } = useParams();
   const { registry, loading } = useRegistry();
   const [filter, setFilter] = useState('All');
+  const [sectionContent, setSectionContent] = useState(null);
+  const [sectionContentLoading, setSectionContentLoading] = useState(false);
 
   if (loading) return <Spinner />;
 
   const section = SECTIONS.find(s => s.slug === sectionSlug);
   if (!section) return <SectionNotFound />;
+
+  useEffect(() => {
+    let ignore = false;
+    const contentFile = section.contentFile || 'index.md';
+    const filePath = `/content/${section.folder}/${contentFile}`;
+
+    setSectionContentLoading(true);
+    fetch(filePath)
+      .then((res) => {
+        if (!res.ok) return null;
+        return res.text();
+      })
+      .then((text) => {
+        if (ignore) return;
+        setSectionContent(text ? parseFrontmatter(text) : null);
+        setSectionContentLoading(false);
+      })
+      .catch(() => {
+        if (!ignore) {
+          setSectionContent(null);
+          setSectionContentLoading(false);
+        }
+      });
+
+    return () => {
+      ignore = true;
+    };
+  }, [section.folder, section.contentFile]);
 
   const items = registry?.[section.slug] || [];
 
@@ -206,6 +236,34 @@ export function SectionList() {
           <h1 className="text-[clamp(2rem,4vw,4rem)] font-extrabold tracking-tight mb-4" style={{ fontFamily: UI_FONT, letterSpacing: '-0.03em' }}>{section.navLabel}</h1>
           <p className="text-lg text-[#4A4D4A] max-w-[550px]">{section.description}</p>
         </motion.div>
+
+        {!sectionContentLoading && sectionContent && (
+          <div className="mb-10 rounded-[24px] border border-white/40 bg-white/80 p-8 shadow-sm backdrop-blur-xl">
+            {sectionContent.meta.title && (
+              <h2 className="text-2xl font-extrabold mb-3" style={{ fontFamily: UI_FONT }}>{sectionContent.meta.title}</h2>
+            )}
+            {sectionContent.meta.description && (
+              <p className="text-[#4A4D4A] text-lg mb-6">{sectionContent.meta.description}</p>
+            )}
+            <div className="prose max-w-none">
+              <ReactMarkdown components={mdComponents}>{sectionContent.body}</ReactMarkdown>
+            </div>
+          </div>
+        )}
+
+        {!sectionContentLoading && sectionContent && (
+          <div className="mb-10 rounded-[24px] border border-white/40 bg-white/80 p-8 shadow-sm backdrop-blur-xl">
+            {sectionContent.meta.title && (
+              <h2 className="text-2xl font-extrabold mb-3" style={{ fontFamily: UI_FONT }}>{sectionContent.meta.title}</h2>
+            )}
+            {sectionContent.meta.description && (
+              <p className="text-[#4A4D4A] text-lg mb-6">{sectionContent.meta.description}</p>
+            )}
+            <div className="prose max-w-none">
+              <ReactMarkdown components={mdComponents}>{sectionContent.body}</ReactMarkdown>
+            </div>
+          </div>
+        )}
 
         <div className="flex flex-wrap gap-2 mb-10">
           {section.categories.map(cat => (

@@ -16,6 +16,7 @@ export const SECTIONS = [
     navLabel: 'Gallery',
     type: 'gallery',
     folder: 'gallery',
+    contentFile: 'index.md',
     description: "A curated collection of nature's most breathtaking moments — from ancient forests to desert dunes.",
     categories: ['All', 'Forests', 'Oceans', 'Deserts', 'Waterfalls'],
   },
@@ -25,6 +26,7 @@ export const SECTIONS = [
     type: 'articles',
     listStyle: 'feature',
     folder: 'blog',
+    contentFile: 'index.md',
     description: "Stories of the world's most beloved flowers — their history, cultural significance, and timeless beauty.",
   },
   {
@@ -33,6 +35,7 @@ export const SECTIONS = [
     type: 'articles',
     listStyle: 'icon',
     folder: 'literacy',
+    contentFile: 'index.md',
     description: 'Educational articles about ecosystems, conservation, and the science of the natural world.',
   },
 ];
