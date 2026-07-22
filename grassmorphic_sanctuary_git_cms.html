@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereal Canopy - Live Git-Backed Sanctuary</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for High-End Typography (Syne for headers, Plus Jakarta Sans for body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for beautiful UI Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        syne: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        peach: {
+                            50: '#fffbf7',
+                            100: '#ffeedc',
+                            200: '#ffd8be',
+                            300: '#ffbfa0',
+                            400: '#ffa182',
+                        },
+                        moss: {
+                            100: '#eefcf4',
+                            200: '#daf6e5',
+                            300: '#bcead0',
+                            400: '#92d7b4',
+                            500: '#64be93',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Modern Grassmorphism / Frosted Glass Core Styling */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px) saturate(120%);
+            -webkit-backdrop-filter: blur(24px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .glass-panel-heavy {
+            background: rgba(18, 25, 22, 0.6);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 48px 0 rgba(0, 0, 0, 0.35);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(146, 215, 180, 0.15);
+        }
+
+        /* Ambient leaf & grass drop shadows */
+        .organic-shadow {
+            filter: drop-shadow(0 0 20px rgba(146, 215, 180, 0.25));
+        }
+
+        /* Beautiful glowing dynamic scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 20, 0.8);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #ffd8be, #92d7b4);
+            border-radius: 9999px;
+        }
+
+        /* Soft neon bloom shadows for natural feel */
+        .bloom-peach {
+            box-shadow: 0 0 40px rgba(255, 161, 130, 0.3);
+        }
+        .bloom-moss {
+            box-shadow: 0 0 40px rgba(146, 215, 180, 0.35);
+        }
+
+        /* Animation Keyframes */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+        }
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(15px) rotate(-3deg); }
+        }
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(4%, 4%) scale(1.15); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float-reverse 10s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        .animate-drift {
+            animation: drift 25s ease-in-out infinite;
+        }
+
+        /* Smooth page transition animations */
+        .page-fade {
+            animation: pageFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(20px); filter: blur(4px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        /* Custom style to handle rich text output */
+        .rich-text-content h1 { font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem; color: white; font-family: 'Syne', sans-serif; }
+        .rich-text-content h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 0.75rem; color: #ffeedc; font-family: 'Syne', sans-serif; }
+        .rich-text-content p { margin-bottom: 1rem; line-height: 1.75; color: rgba(255,255,255,0.8); }
+        .rich-text-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+        .rich-text-content ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1rem; }
+
+        /* WYSIWYG Editor custom formatting */
+        .editable-active {
+            outline: 2px dashed #92d7b4 !important;
+            outline-offset: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .editable-active:hover {
+            background: rgba(146, 215, 180, 0.1) !important;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0b100e] text-white font-sans min-h-screen relative overflow-x-hidden antialiased">
+
+    <!-- Starry & Nebula Dynamic Canvas Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <!-- Aurora Nebulae Gradients (Shifting peach pink to mossy green sky) -->
+        <div class="absolute top-[-20%] left-[-25%] w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-[#92d7b4] to-transparent opacity-20 blur-[140px] animate-drift"></div>
+        <div class="absolute bottom-[-20%] right-[-15%] w-[70%] h-[75%] rounded-full bg-gradient-to-bl from-[#ffa182] to-transparent opacity-15 blur-[160px] animate-drift" style="animation-delay: -5s;"></div>
+        <div class="absolute top-[30%] right-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-b from-[#ffeedc] to-transparent opacity-[0.08] blur-[120px] animate-drift" style="animation-delay: -10s;"></div>
+
+        <!-- Canvas for interactive stars -->
+        <canvas id="starfieldCanvas" class="absolute inset-0 w-full h-full opacity-70"></canvas>
+    </div>
+
+    <!-- Aesthetic Floating Glass Leaves Overlay -->
+    <div class="fixed top-24 left-10 pointer-events-none z-10 opacity-30 animate-float hidden lg:block">
+        <svg class="w-24 h-24 text-moss-300 fill-current opacity-40 organic-shadow" viewBox="0 0 100 100">
+            <path d="M50,10 C50,10 75,35 75,60 C75,73.8 63.8,85 50,85 C36.2,85 25,73.8 25,60 C25,35 50,10 50,10 Z M50,15 C45,28 32,50 32,60 C32,70 40,78 50,78 C60,78 68,70 68,60 C68,50 55,28 50,15 Z" />
+        </svg>
+    </div>
+    <div class="fixed bottom-12 right-12 pointer-events-none z-10 opacity-20 animate-float-delayed hidden lg:block">
+        <svg class="w-36 h-36 text-peach-200 fill-current opacity-40 organic-shadow" viewBox="0 0 100 100">
+            <path d="M10,50 C10,50 35,25 60,25 C73.8,25 85,36.2 85,50 C85,63.8 73.8,75 60,75 C35,75 10,50 10,50 Z" />
+        </svg>
+    </div>
+
+    <!-- Navigation Bar Container -->
+    <header class="fixed top-0 left-0 w-full z-40 px-4 pt-6 transition-all duration-300" id="mainHeader">
+        <div class="max-w-6xl mx-auto">
+            <nav class="glass-panel rounded-full px-6 py-3.5 flex items-center justify-between transition-all duration-300">
+                <!-- Branding / Logo -->
+                <a href="#home" class="flex items-center gap-2 group cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-moss-300 to-peach-300 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-leaf text-[#0b100e] text-lg"></i>
+                    </div>
+                    <span class="font-syne font-bold text-xl tracking-wide bg-gradient-to-r from-white via-peach-100 to-moss-200 bg-clip-text text-transparent group-hover:opacity-90 transition-opacity">
+                        Canopy
+                    </span>
+                </a>
+
+                <!-- Nav Menu Desktop -->
+                <div class="hidden md:flex items-center gap-1" id="navDesktopMenu">
+                    <!-- Nav items dynamically generated -->
+                </div>
+
+                <!-- Action Button & Admin Login -->
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleCMSPanel()" class="glass-card hover:bg-moss-300 hover:text-black py-2 px-4 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 border border-white/10 hover:border-moss-300 transition-all duration-300">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                        <span>CMS Engine</span>
+                    </button>
+                    <!-- Mobile Hamburger -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 glass-panel rounded-full flex items-center justify-center text-white hover:text-moss-300 transition-colors">
+                        <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div class="hidden md:hidden mt-2 mx-2 glass-panel-heavy rounded-3xl p-6 transition-all duration-300" id="mobileMenu">
+            <div class="flex flex-col gap-4 text-center" id="navMobileMenu">
+                <!-- Nav items dynamically generated -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Global Floating Alerts / Toast Manager -->
+    <div id="toastContainer" class="fixed top-24 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- MAIN CONTENT VIEW WRAPPER -->
+    <main class="relative z-20 pt-32 pb-24 px-4 min-h-screen max-w-6xl mx-auto" id="mainContent">
+        <!-- Views will be mounted here by client routing -->
+        <div id="viewContainer" class="page-fade"></div>
+    </main>
+
+    <!-- Elegant Glassmorphic Footer -->
+    <footer class="relative z-20 border-t border-white/10 bg-black/40 backdrop-blur-md py-12 px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+            <div>
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-moss-300 to-peach-300 flex items-center justify-center">
+                        <i class="fa-solid fa-leaf text-black text-xs"></i>
+                    </div>
+                    <span class="font-syne font-bold text-lg text-white">Canopy</span>
+                </div>
+                <p class="text-white/60 text-sm max-w-xs mx-auto md:mx-0">
+                    Sensing natural rhythms through beautiful glass-textured canvases and dynamic content discovery.
+                </p>
+            </div>
+            <div class="flex justify-center gap-6">
+                <a href="#" class="text-white/60 hover:text-peach-200 transition-colors text-lg"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-white/60 hover:text-moss-300 transition-colors text-lg"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#" class="text-white/60 hover:text-white transition-colors text-lg"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="text-white/60 hover:text-peach-300 transition-colors text-lg"><i class="fa-brands fa-unsplash"></i></a>
+            </div>
+            <div class="text-center md:text-right text-white/40 text-xs">
+                <p>&copy; 2026 Canopy Sanctuary. Connected with serverless webhooks.</p>
+                <p class="mt-1">Crafted for aesthetic open-source deployment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WYSIWYG FLOATING RICH TEXT TOOLBAR -->
+    <div id="wysiwygToolbar" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel-heavy px-4 py-2.5 rounded-full flex items-center gap-2 hidden border border-white/20 shadow-2xl">
+        <button onclick="formatDoc('bold')" title="Bold" class="w-8 h-8 rounded-full hover:bg-white/10 text-white flex items-center justify-center transition-colors"><i class="fa-solid fa-bold"></i></button>
+        <button onclick="formatDoc('italic')" title="Italic" class="w-8 h-8 rounded-full hover:bg-white/10 text-white flex items-center justify-center transition-colors"><i class="fa-solid fa-italic"></i></button>
+        <button onclick="formatDoc('underline')" title="Underline" class="w-8 h-8 rounded-full hover:bg-white/10 text-white flex items-center justify-center transition-colors"><i class="fa-solid fa-underline"></i></button>
+        <div class="h-6 w-[1px] bg-white/20"></div>
+        <button onclick="formatDoc('formatBlock', 'h2')" title="Header" class="w-8 h-8 rounded-full hover:bg-white/10 text-white flex items-center justify-center transition-colors text-xs font-bold">H2</button>
+        <button onclick="formatDoc('formatBlock', 'p')" title="Paragraph" class="w-8 h-8 rounded-full hover:bg-white/10 text-white flex items-center justify-center transition-colors text-xs">P</button>
+        <div class="h-6 w-[1px] bg-white/20"></div>
+        <button onclick="formatDoc('insertUnorderedList')" title="Bullet List" class="w-8 h-8 rounded-full hover:bg-white/10 text-white flex items-center justify-center transition-colors"><i class="fa-solid fa-list-ul"></i></button>
+        <button onclick="formatDoc('insertOrderedList')" title="Numbered List" class="w-8 h-8 rounded-full hover:bg-white/10 text-white flex items-center justify-center transition-colors"><i class="fa-solid fa-list-ol"></i></button>
+        <div class="h-6 w-[1px] bg-white/20"></div>
+        <button onclick="saveActiveEditable()" class="bg-moss-300 text-[#0b100e] hover:bg-moss-400 font-bold px-4 py-1.5 rounded-full text-xs transition-colors shadow-md flex items-center gap-1">
+            <i class="fa-solid fa-check"></i> Save Block
+        </button>
+    </div>
+
+    <!-- MAIN CMS CONTROL PANEL DRAWER -->
+    <div id="cmsPanel" class="fixed top-0 right-0 h-full w-full max-w-md bg-zinc-950/95 backdrop-blur-xl border-l border-white/10 z-50 transform translate-x-full transition-transform duration-500 ease-in-out shadow-2xl flex flex-col">
+        <!-- Drawer Header -->
+        <div class="p-6 border-b border-white/10 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-feather-pointed text-moss-300 text-xl"></i>
+                <h2 class="font-syne font-bold text-lg text-white">Canopy CMS Hub</h2>
+            </div>
+            <button onclick="toggleCMSPanel()" class="w-8 h-8 rounded-full hover:bg-white/10 text-white/70 hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Drawer Body -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-8">
+            <!-- Active Connection Status Card -->
+            <div id="gitStatusCard" class="glass-panel p-4 rounded-2xl border border-yellow-500/30 bg-yellow-500/5">
+                <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400 mt-0.5" id="gitStatusIcon">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm text-white" id="gitStatusTitle">LocalStorage Sandbox</h4>
+                        <p class="text-xs text-white/60 mt-0.5 leading-relaxed" id="gitStatusDesc">
+                            Connect your GitHub details below or set up a Vercel Deploy Hook to automatically save changes, write updates, and deploy your live site.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERCEL DEPLOY HOOK INTEGRATION -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-syne font-semibold text-white text-sm tracking-wider uppercase">Vercel Deploy Webhook</h3>
+                    <span id="webhookIndicator" class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-zinc-500/10 text-zinc-400 border border-zinc-500/20">Inactive</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl space-y-3">
+                    <p class="text-xs text-white/60 leading-relaxed">
+                        Create a **Deploy Hook** in your Vercel Project Settings (Settings -> Git -> Deploy Hooks) and paste the URL below to enable instant, single-click global deployments.
+                    </p>
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Vercel Deploy Hook URL</label>
+                        <input id="vercelWebhookUrl" type="text" placeholder="https://api.vercel.com/v1/integrations/deploy/..." class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-moss-300">
+                    </div>
+                    <button onclick="saveWebhookSettings()" class="w-full bg-white/10 hover:bg-white/15 text-white font-semibold text-xs py-2 rounded-xl transition-all border border-white/10 flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-bookmark"></i> Save Hook Settings
+                    </button>
+                </div>
+            </div>
+
+            <!-- GITHUB WORKSPACE SYNC & CALLBACK SETUP -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-syne font-semibold text-white text-sm tracking-wider uppercase">GitHub Workspace Sync</h3>
+                    <span id="syncIndicator" class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">Not Connected</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl space-y-3">
+                    <div class="flex flex-col gap-2 mb-2">
+                        <p class="text-xs text-white/60 leading-relaxed">
+                            Log in using GitHub OAuth or enter your details manually.
+                        </p>
+                        <!-- GITHUB OAUTH DYNAMIC LOGIN BUTTON -->
+                        <button onclick="loginWithGitHubOAuth()" class="bg-white text-black hover:bg-zinc-200 font-semibold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg">
+                            <i class="fa-brands fa-github text-sm"></i> Securely Login with GitHub
+                        </button>
+                    </div>
+
+                    <div class="border-t border-white/5 pt-3 space-y-3">
+                        <div>
+                            <label class="block text-xs text-white/60 mb-1">GitHub Username / Organization</label>
+                            <input id="gitUser" type="text" placeholder="e.g. canopy-architect" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-moss-300">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-white/60 mb-1">GitHub Repository Name</label>
+                            <input id="gitRepo" type="text" placeholder="e.g. aesthetic-canopy" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-moss-300">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-white/60 mb-1">Branch Name</label>
+                            <input id="gitBranch" type="text" value="main" placeholder="main" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-moss-300">
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <label class="block text-xs text-white/60">Personal Access Token (PAT)</label>
+                                <a href="https://github.com/settings/tokens/new?scopes=repo&description=Canopy%20CMS%20Token" target="_blank" class="text-[10px] text-peach-200 hover:underline">Get Token <i class="fa-solid fa-up-right-from-square text-[8px]"></i></a>
+                            </div>
+                            <input id="gitToken" type="password" placeholder="ghp_xxxxxxxxxxxx" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-moss-300">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-2">
+                            <button onclick="saveAndFetchFromGitHub()" class="bg-white/10 hover:bg-white/15 text-white font-semibold text-xs py-2.5 rounded-xl transition-all border border-white/10 flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-arrow-rotate-left"></i> Connect & Fetch
+                            </button>
+                            <button id="btnPushDeploy" onclick="pushToGitHubAndDeploy()" disabled class="bg-gradient-to-r from-moss-500 to-emerald-400 opacity-50 cursor-not-allowed text-[#0b100e] font-semibold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-lg">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Push & Deploy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit mode toggle -->
+            <div class="glass-panel p-4 rounded-2xl flex items-center justify-between">
+                <div>
+                    <h3 class="font-bold text-sm text-white">Interactive Inline Editing</h3>
+                    <p class="text-xs text-white/60">Click on any text on screen to live-edit</p>
+                </div>
+                <button id="inlineEditToggle" onclick="toggleInlineEditing()" class="w-12 h-6 rounded-full bg-white/20 relative transition-colors duration-300">
+                    <span class="absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform duration-300" id="inlineEditToggleKnob"></span>
+                </button>
+            </div>
+
+            <!-- Page & Navigation Bar Manager -->
+            <div class="space-y-4">
+                <h3 class="font-syne font-semibold text-white text-sm tracking-wider uppercase">Navigation & Pages Manager</h3>
+                <div class="glass-panel p-4 rounded-2xl space-y-4">
+                    <!-- Current Page List with delete options -->
+                    <div>
+                        <label class="block text-xs text-white/60 mb-2">Active Navigation Pages</label>
+                        <div id="cmsPageList" class="space-y-2">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                    <div class="border-t border-white/5 pt-3 space-y-3">
+                        <label class="block text-xs text-white/60">Create New Canvas Page</label>
+                        <div>
+                            <input id="newPageTitle" type="text" placeholder="e.g. Tree Canopy" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-moss-300">
+                        </div>
+                        <div>
+                            <select id="newPageTemplate" class="w-full bg-zinc-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-moss-300">
+                                <option value="richText">Aesthetic Article (Full Rich Text)</option>
+                                <option value="gallery">Photo Gallery Layout</option>
+                                <option value="contact">Feedback & Message Portal</option>
+                            </select>
+                        </div>
+                        <button onclick="createNewCMSPage()" class="w-full bg-gradient-to-r from-moss-400 to-peach-300 hover:opacity-95 text-black font-semibold text-sm py-2.5 rounded-xl transition-all shadow-lg flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-circle-plus"></i> Add to Navigation
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Media & Banner Customization -->
+            <div class="space-y-4">
+                <h3 class="font-syne font-semibold text-white text-sm tracking-wider uppercase">Layout Display Images</h3>
+                <div class="glass-panel p-4 rounded-2xl space-y-3">
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Home Hero Image URL</label>
+                        <input id="cmsHomeHeroImg" type="text" placeholder="Unsplash URL..." class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">About Page Image URL</label>
+                        <input id="cmsAboutImg" type="text" placeholder="Unsplash URL..." class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <button onclick="updateCoreLayoutImages()" class="w-full bg-white/10 hover:bg-white/15 text-white border border-white/10 font-semibold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-images"></i> Save Core Images
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Eco-Facts Editor -->
+            <div class="space-y-4">
+                <h3 class="font-syne font-semibold text-white text-sm tracking-wider uppercase">Manage Nature Facts Cards</h3>
+                <div class="glass-panel p-4 rounded-2xl space-y-3">
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Fact Title</label>
+                        <input id="newFactTitle" type="text" placeholder="Fungal Networks" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Dynamic Icon</label>
+                        <select id="newFactIcon" class="w-full bg-zinc-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white focus:outline-none">
+                            <option value="fa-tree">Oak Tree (fa-tree)</option>
+                            <option value="fa-seedling">Seedling (fa-seedling)</option>
+                            <option value="fa-network-wired">Grid / Web (fa-network-wired)</option>
+                            <option value="fa-wand-magic-sparkles">Glow (fa-wand-magic-sparkles)</option>
+                            <option value="fa-dna">Helix Structure (fa-dna)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Fact Explanation Description</label>
+                        <textarea id="newFactDesc" rows="3" placeholder="Explain the scientific discovery..." class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none"></textarea>
+                    </div>
+                    <button onclick="addNewEcoFact()" class="w-full bg-white/10 hover:bg-white/15 text-white border border-white/10 font-semibold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-plus"></i> Inject New Fact Card
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Media/Image CMS Adder -->
+            <div class="space-y-4">
+                <h3 class="font-syne font-semibold text-white text-sm tracking-wider uppercase">Add Gallery Assets</h3>
+                <div class="glass-panel p-4 rounded-2xl space-y-3">
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Image URL</label>
+                        <input id="newMediaUrl" type="text" placeholder="https://images.unsplash.com/..." class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-moss-300">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Caption / Title</label>
+                        <input id="newMediaCaption" type="text" placeholder="Celestial Moss" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-moss-300">
+                    </div>
+                    <button onclick="addNewMediaToGallery()" class="w-full bg-white/10 hover:bg-white/15 text-white border border-white/10 font-semibold text-sm py-2.5 rounded-xl transition-all flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-image"></i> Inject to Gallery
+                    </button>
+                </div>
+            </div>
+
+            <!-- Create Blog Post -->
+            <div class="space-y-4">
+                <h3 class="font-syne font-semibold text-white text-sm tracking-wider uppercase">Compose New Blog Post</h3>
+                <div class="glass-panel p-4 rounded-2xl space-y-3">
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Post Title</label>
+                        <input id="newBlogTitle" type="text" placeholder="Secret Patterns of Fungi" class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Summary Excerpt</label>
+                        <textarea id="newBlogSummary" rows="2" placeholder="Brief visual overview..." class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-white/60 mb-1">Image URL</label>
+                        <input id="newBlogImage" type="text" placeholder="https://images.unsplash.com/..." class="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <button onclick="addNewBlogPost()" class="w-full bg-white/10 hover:bg-white/15 text-white border border-white/10 font-semibold text-sm py-2.5 rounded-xl transition-all flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-pen-fancy"></i> Publish Blog Card
+                    </button>
+                </div>
+            </div>
+
+            <!-- Developer State Backup -->
+            <div class="space-y-4">
+                <h3 class="font-syne font-semibold text-white text-sm tracking-wider uppercase">Fallback & Backup System</h3>
+                <div class="glass-panel p-4 rounded-2xl space-y-3">
+                    <button onclick="exportStateAsJSON()" class="w-full bg-zinc-900 border border-white/10 hover:bg-zinc-800 text-peach-200 font-semibold text-sm py-2.5 rounded-xl transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Download Local Backup
+                    </button>
+                    <button onclick="triggerImport()" class="w-full bg-zinc-900 border border-white/10 hover:bg-zinc-800 text-moss-300 font-semibold text-sm py-2.5 rounded-xl transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-upload"></i> Restore Backup
+                    </button>
+                    <input type="file" id="importStateFile" class="hidden" accept=".json" onchange="importStateJSON(event)">
+                    <button onclick="showResetConfirmation()" class="w-full bg-red-950/20 border border-red-900/40 hover:bg-red-950/40 text-red-400 font-semibold text-xs py-2 rounded-xl transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-rotate-left"></i> Reset to Original Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOM DIALOGS AND MODALS -->
+    <!-- Custom Confirmation Modal -->
+    <div id="confirmModal" class="fixed inset-0 z-50 bg-[#020503]/90 flex items-center justify-center p-4 backdrop-blur-xl hidden">
+        <div class="glass-panel-heavy max-w-sm w-full rounded-[2rem] p-8 border border-white/10 relative text-center">
+            <div class="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 mx-auto mb-4">
+                <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+            </div>
+            <h3 class="font-syne font-bold text-white text-lg mb-2" id="confirmModalTitle">Are you sure?</h3>
+            <p class="text-white/70 text-sm mb-6" id="confirmModalMessage">This action will reset your changes back to original default settings.</p>
+            <div class="flex gap-3">
+                <button onclick="closeConfirmModal()" class="flex-1 bg-white/10 hover:bg-white/15 text-white font-semibold py-2.5 rounded-xl text-sm transition-all border border-white/10">
+                    Cancel
+                </button>
+                <button id="confirmModalBtn" class="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 rounded-xl text-sm transition-all">
+                    Reset System
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OAUTH HANDSHAKE LOADING MODAL -->
+    <div id="oauthLoadingModal" class="fixed inset-0 z-50 bg-[#020503]/95 flex items-center justify-center p-4 backdrop-blur-2xl hidden">
+        <div class="glass-panel-heavy max-w-md w-full rounded-[2.5rem] p-10 border border-white/20 text-center shadow-2xl">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-moss-300 to-peach-300 flex items-center justify-center text-[#0b100e] mx-auto mb-6 animate-spin">
+                <i class="fa-solid fa-circle-notch text-2xl"></i>
+            </div>
+            <h3 class="font-syne font-bold text-white text-2xl mb-3">Exchanging OAuth Handshake</h3>
+            <p class="text-white/75 text-sm mb-6 leading-relaxed">
+                We are negotiating with GitHub to complete your secure callback loop. Your administrative session will load momentarily.
+            </p>
+            <span class="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full bg-moss-500/10 text-moss-300 border border-moss-500/20">
+                Establishing Key Matrix
+            </span>
+        </div>
+    </div>
+
+    <!-- PRIMARY CORE APP CONTROLLERS -->
+    <script>
+        // Default Starting State Database for beautiful content discovery
+        const defaultAppContent = {
+            images: {
+                homeHero: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1200&q=80",
+                aboutShowcase: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1200&q=80"
+            },
+            pages: [
+                {
+                    id: 'home',
+                    title: 'Home',
+                    template: 'home',
+                    content: {
+                        heroHeading: "Discovering Earth's Subtle Tapestry",
+                        heroSubheading: "A sensory exhibition of organic interfaces, grassmorphic styling, and cosmic forest connection.",
+                        mainHeading: "Ethereal Landscapes",
+                        mainParagraph: "We explore natural networks that mirror cosmic neural skies. Our sanctuary weaves fluid glass architectures with moss ecosystems, creating serene digital resting points. Experience shifting light pink and deep sage gradients reflecting stars.",
+                        featuredBadge: "Sanctuary Essence",
+                        featuredHeading: "Organic Symbiosis",
+                        featuredParagraph: "Mycelial networks route wisdom beneath the soils. Like the stars floating across our peach-tinted sky, these ancient lines transport light and life, keeping worlds interconnected.",
+                    }
+                },
+                {
+                    id: 'gallery',
+                    title: 'Gallery',
+                    template: 'gallery',
+                    media: [
+                        { id: 1, title: 'Bioluminescent Dew', url: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80' },
+                        { id: 2, title: 'Prismatic Canopy', url: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80' },
+                        { id: 3, title: 'Velvet Forest floor', url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80' },
+                        { id: 4, title: 'Peach Horizon', url: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=80' },
+                        { id: 5, title: 'Soft Neon Meadows', url: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80' },
+                        { id: 6, title: 'Mossy Sanctuary', url: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80' }
+                    ]
+                },
+                {
+                    id: 'blogs',
+                    title: 'Blogs',
+                    template: 'blogs',
+                    articles: [
+                        {
+                            id: 'blog-1',
+                            title: 'The Silent Intelligence of Lichens',
+                            excerpt: 'Draping gracefully across ancient bark, lichens orchestrate deep environmental sensory telemetry.',
+                            image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80',
+                            body: '<h2>Symbiotic Architecture</h2><p>Lichens are not single organisms; they are breathtaking unions of fungi and photosynthetic algae. Together, they form beautiful structures that thrive in the hardest of planetary surfaces.</p><p>As you gaze upon our peach-pink atmospheric gradient, imagine the micro-atmospheres these organisms sustain. They serve as nature\'s bio-sensors, reminding us of interdependence.</p>'
+                        },
+                        {
+                            id: 'blog-2',
+                            title: 'Celestial Resonances in the Undergrowth',
+                            excerpt: 'Exploring patterns of natural fractals that correlate perfectly with distant cosmic star systems.',
+                            image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=800&q=80',
+                            body: '<h2>Macrocosm & Microcosm</h2><p>The spacing of branches on a forest floor mirrors stellar systems. The starfield Canvas rendering beneath this app replicates algorithms of natural tree growth, ensuring organic consistency.</p><p>We find balance when we look simultaneously close at the soil and far towards the stars. Both share a common design signature of complex network loops.</p>'
+                        }
+                    ]
+                },
+                {
+                    id: 'facts',
+                    title: 'Nature Facts',
+                    template: 'facts',
+                    cards: [
+                        { id: 1, fact: "The 'Wood Wide Web' allows trees to communicate, share nutrients, and alert each other of looming pests through hidden fungal networks.", title: "Mycorrhizal Telemetry", icon: "fa-network-wired" },
+                        { id: 2, fact: "Bioluminescent mushrooms glow to attract nocturnal insects, aiding spore dispersal in thick canopies where wind is sparse.", title: "Spore Luminescence", icon: "fa-wand-magic-sparkles" },
+                        { id: 3, fact: "Ferns absorb toxic heavy metals directly from soil, filtering water runoffs and dynamically restoring balance in broken landscapes.", title: "Phytoremediation", icon: "fa-seedling" },
+                        { id: 4, fact: "A single ancient oak can support more than 2,000 distinct species of mosses, insects, lichens, and birds, forming custom bio-castles.", title: "Keystone Sovereigns", icon: "fa-tree" }
+                    ]
+                },
+                {
+                    id: 'about',
+                    title: 'About',
+                    template: 'about',
+                    content: {
+                        heading: "Architects of the Dreamscape",
+                        mission: "To inspire deep ecological kinship through aesthetic digital mediums, bridging web design and nature's wisdom.",
+                        story: "Canopy was dreamed up in deep velvet mountain nights. We find that screen aesthetics could emulate actual forest bathing. By pairing soft tactile glassmorphic frames, light pink nebulae, and organic physics, we create a screen interface that calms the central nervous system.",
+                        buttonText: "Join the Sanctuary Network",
+                        inputPlaceholder: "Enter your email to receive updates"
+                    }
+                }
+            ]
+        };
+
+        // State variables
+        let appData = JSON.parse(localStorage.getItem('canopy_cms_data')) || JSON.parse(JSON.stringify(defaultAppContent));
+        if (!appData.images) {
+            appData.images = JSON.parse(JSON.stringify(defaultAppContent.images));
+        }
+        let activePageId = 'home';
+        let isCMSMode = true; 
+        let isEditingEnabled = false;
+        let activeEditingBlock = null;
+
+        // Vercel Webhook Variables
+        let vercelWebhookUrl = localStorage.getItem('canopy_vercel_webhook') || '';
+
+        // GitHub API Connection variables
+        let gitConfig = {
+            user: localStorage.getItem('canopy_git_user') || '',
+            repo: localStorage.getItem('canopy_git_repo') || '',
+            branch: localStorage.getItem('canopy_git_branch') || 'main',
+            token: localStorage.getItem('canopy_git_token') || '',
+            filePath: 'canopy-content.json', 
+            fileSha: '' 
+        };
+
+        // Client credentials for secure OAuth Redirection
+        const OAUTH_CLIENT_ID = 'Ov23liXlVscuG9P6pL8Z'; // Replace with your custom Client ID from GitHub Developer settings if needed
+        const OAUTH_GATEWAY_URL = 'https://gatekeeper.outstatic.com/oauth/token'; // Default secure serverless exchange gatekeeper
+
+        // Toast alert system
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `glass-panel px-5 py-3 rounded-2xl flex items-center gap-3 text-sm pointer-events-auto transform translate-y-2 opacity-0 transition-all duration-300 border-l-4 ${
+                type === 'success' ? 'border-moss-400' : 'border-peach-300'
+            }`;
+            
+            const icon = type === 'success' ? 'fa-circle-check text-moss-300' : 'fa-circle-exclamation text-peach-300';
+            toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-[-10px]', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Save state to browser storage
+        function saveToStorage() {
+            localStorage.setItem('canopy_cms_data', JSON.stringify(appData));
+            updateCMSInputs();
+        }
+
+        // Dynamic Page Router
+        function navigateTo(pageId) {
+            const container = document.getElementById('viewContainer');
+            
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(15px)';
+            container.style.filter = 'blur(4px)';
+
+            setTimeout(() => {
+                activePageId = pageId;
+                renderPageContent(pageId);
+                updateNavigationHighlight();
+                
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+                container.style.filter = 'blur(0)';
+                
+                document.getElementById('mobileMenu').classList.add('hidden');
+                document.getElementById('mobileMenuIcon').className = 'fa-solid fa-bars';
+                
+                if (isEditingEnabled) {
+                    initEditableAreas();
+                }
+            }, 250);
+        }
+
+        // Render dynamic page content depending on active layout templates
+        function renderPageContent(pageId) {
+            const page = appData.pages.find(p => p.id === pageId);
+            const container = document.getElementById('viewContainer');
+            if (!page) {
+                container.innerHTML = `<div class="text-center py-20"><h2 class="text-2xl font-syne">Template Not Found</h2></div>`;
+                return;
+            }
+
+            let html = '';
+
+            switch (page.template) {
+                case 'home':
+                    html = `
+                        <div class="text-center max-w-4xl mx-auto mb-20">
+                            <h1 class="font-syne font-bold text-4xl md:text-6xl lg:text-7xl leading-tight tracking-tight mb-6 bg-gradient-to-r from-white via-peach-100 to-moss-200 bg-clip-text text-transparent cursor-pointer" 
+                                data-cms-field="heroHeading" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                ${page.content.heroHeading}
+                            </h1>
+                            <p class="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto cursor-pointer" 
+                                data-cms-field="heroSubheading" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                ${page.content.heroSubheading}
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
+                            <div class="glass-panel p-8 md:p-12 rounded-[2rem] relative overflow-hidden group">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-moss-300/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                                <h2 class="font-syne font-bold text-2xl md:text-3xl mb-6 text-white cursor-pointer"
+                                    data-cms-field="mainHeading" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                    ${page.content.mainHeading}
+                                </h2>
+                                <p class="text-white/70 leading-relaxed text-sm md:text-base cursor-pointer"
+                                    data-cms-field="mainParagraph" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                    ${page.content.mainParagraph}
+                                </p>
+                            </div>
+                            <div class="relative rounded-[2rem] overflow-hidden group min-h-[350px] shadow-2xl border border-white/10">
+                                <img src="${appData.images.homeHero}" alt="Hero Custom Image" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8 flex flex-col justify-end">
+                                    <span class="text-moss-300 text-xs font-semibold tracking-widest uppercase mb-1 cursor-pointer"
+                                        data-cms-field="featuredBadge" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                        ${page.content.featuredBadge}
+                                    </span>
+                                    <h3 class="font-syne font-bold text-xl text-white mb-2 cursor-pointer"
+                                        data-cms-field="featuredHeading" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                        ${page.content.featuredHeading}
+                                    </h3>
+                                    <p class="text-white/75 text-sm cursor-pointer"
+                                        data-cms-field="featuredParagraph" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                        ${page.content.featuredParagraph}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'gallery':
+                    html = `
+                        <div class="text-center mb-12">
+                            <h1 class="font-syne font-bold text-4xl mb-3 text-white">Interactive Exhibition</h1>
+                            <p class="text-white/60 text-sm max-w-md mx-auto">Explore organic textures in tactile frosted displays. Build, scale, and delete items from the CMS panel.</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                            ${page.media.map(item => `
+                                <div class="glass-card rounded-[2rem] overflow-hidden flex flex-col p-4 group">
+                                    <div class="relative w-full h-64 rounded-2xl overflow-hidden mb-4 bg-zinc-900">
+                                        <img src="${item.url}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80'">
+                                        <div class="absolute inset-0 bg-black/70 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button onclick="removeGalleryItem(${item.id})" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full text-xs transition-colors flex items-center gap-1">
+                                                <i class="fa-solid fa-trash"></i> Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <h3 class="font-syne font-bold text-lg text-white/90 px-2 flex justify-between items-center">
+                                        <span>${item.title}</span>
+                                        <i class="fa-solid fa-leaf text-moss-300/40 group-hover:text-moss-300 transition-colors text-sm"></i>
+                                    </h3>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    break;
+
+                case 'blogs':
+                    html = `
+                        <div class="text-center mb-12">
+                            <h1 class="font-syne font-bold text-4xl mb-3 text-white">Canopy Logs</h1>
+                            <p class="text-white/60 text-sm max-w-md mx-auto">Philosophical transmissions from natural sensors and architectural design.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            ${page.articles.map(art => `
+                                <article class="glass-card rounded-[2rem] p-6 flex flex-col justify-between group">
+                                    <div>
+                                        <div class="relative w-full h-52 rounded-2xl overflow-hidden mb-5 bg-zinc-900">
+                                            <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80'">
+                                            <div class="absolute inset-0 bg-black/70 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <button onclick="removeBlogPost('${art.id}')" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full text-xs transition-colors flex items-center gap-1">
+                                                    <i class="fa-solid fa-trash"></i> Remove
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <h2 class="font-syne font-bold text-2xl text-peach-100 mb-3 group-hover:text-peach-200 transition-colors">${art.title}</h2>
+                                        <p class="text-white/70 text-sm mb-6 leading-relaxed">${art.excerpt}</p>
+                                    </div>
+                                    <button onclick="viewFullPost('${art.id}')" class="self-start glass-panel hover:bg-moss-300 hover:text-black hover:border-moss-300 text-xs font-semibold py-2.5 px-5 rounded-full uppercase tracking-wider transition-all flex items-center gap-1">
+                                        Read Log <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                </article>
+                            `).join('')}
+                        </div>
+                    `;
+                    break;
+
+                case 'facts':
+                    html = `
+                        <div class="text-center mb-16">
+                            <h1 class="font-syne font-bold text-4xl mb-3 text-white">Eco Dynamics</h1>
+                            <p class="text-white/60 text-sm max-w-md mx-auto">A digital deck tracking high-tech bio intelligence processes. Edit and remove facts dynamically using your CMS panel.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${page.cards.map(card => `
+                                <div class="glass-panel p-6 rounded-3xl relative overflow-hidden group">
+                                    <button onclick="removeEcoFact(${card.id})" class="absolute top-4 right-4 text-white/30 hover:text-red-400 text-xs transition-colors p-1" title="Delete Fact">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                    <div class="absolute -right-8 -bottom-8 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity duration-300">
+                                        <i class="fa-solid ${card.icon} text-9xl"></i>
+                                    </div>
+                                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-moss-300/20 to-peach-300/20 flex items-center justify-center text-moss-300 mb-5 border border-white/10">
+                                        <i class="fa-solid ${card.icon} text-lg"></i>
+                                    </div>
+                                    <h3 class="font-syne font-semibold text-lg text-white mb-2">${card.title}</h3>
+                                    <p class="text-white/70 text-sm leading-relaxed">${card.fact}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    break;
+
+                case 'about':
+                    html = `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h1 class="font-syne font-bold text-4xl md:text-5xl leading-tight text-white mb-6 cursor-pointer"
+                                    data-cms-field="heading" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                    ${page.content.heading}
+                                </h1>
+                                <p class="text-moss-300 font-semibold mb-6 cursor-pointer"
+                                    data-cms-field="mission" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                    ${page.content.mission}
+                                </p>
+                                <p class="text-white/70 leading-relaxed text-sm md:text-base mb-8 cursor-pointer"
+                                    data-cms-field="story" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                    ${page.content.story}
+                                </p>
+                                
+                                <div class="glass-panel p-4 rounded-3xl flex flex-col sm:flex-row gap-2">
+                                    <input type="email" placeholder="${page.content.inputPlaceholder}" class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm flex-1 focus:outline-none focus:border-moss-300">
+                                    <button onclick="showToast('Success! You entered our organic registry.')" class="bg-peach-300 hover:bg-peach-400 text-[#0b100e] font-semibold px-6 py-3 rounded-2xl text-sm transition-colors shadow-lg">
+                                        ${page.content.buttonText}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="relative w-full h-[500px] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
+                                <img src="${appData.images.aboutShowcase}" alt="About Showcase Banner" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-8 left-8 right-8 glass-panel p-6 rounded-2xl">
+                                    <h4 class="font-syne font-bold text-white text-lg">Ethereal Canopy</h4>
+                                    <p class="text-white/70 text-xs mt-1">Sensing architecture with premium organic systems.</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'richText':
+                    html = `
+                        <div class="max-w-3xl mx-auto glass-panel p-8 md:p-12 rounded-[2rem] relative">
+                            <div class="rich-text-content" data-cms-field="dynamicBody" data-cms-page="${pageId}" onclick="makeEditable(this)">
+                                ${page.content || `
+                                    <h1>Title: ${page.title}</h1>
+                                    <p>Welcome to your newly minted customized static page.</p>
+                                    <p>Double-click/tap on this area to enter custom HTML/text, change lists, formatting elements, and style dynamically.</p>
+                                `}
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'contact':
+                    html = `
+                        <div class="max-w-2xl mx-auto text-center mb-12">
+                            <h1 class="font-syne font-bold text-4xl mb-3 text-white">Biosphere Feedback</h1>
+                            <p class="text-white/60 text-sm">Transmit queries, telemetry logs, or general warm notes to the canopy operators.</p>
+                        </div>
+                        <div class="max-w-xl mx-auto glass-panel p-8 rounded-[2rem]">
+                            <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+                                <div>
+                                    <label class="block text-xs text-white/60 mb-1">Your Title / Name</label>
+                                    <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white focus:outline-none focus:border-moss-300">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-white/60 mb-1">Telemetry Email</label>
+                                    <input type="email" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white focus:outline-none focus:border-moss-300">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-white/60 mb-1">Feedback Log Message</label>
+                                    <textarea required rows="4" class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white focus:outline-none focus:border-moss-300"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-gradient-to-r from-moss-300 to-peach-300 hover:opacity-95 text-[#0b100e] font-semibold py-3 rounded-2xl text-sm transition-all shadow-lg flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i> Transmit Logs
+                                </button>
+                            </form>
+                        </div>
+                    `;
+                    break;
+            }
+
+            container.innerHTML = html;
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            e.target.reset();
+            showToast("Connection Established! Data packet has been dispatched to local storage.");
+        }
+
+        // Render Navigation Elements
+        function generateNavigation() {
+            const dest = document.getElementById('navDesktopMenu');
+            const destMobile = document.getElementById('navMobileMenu');
+
+            const menuMarkup = appData.pages.map(p => {
+                const isActive = p.id === activePageId;
+                const activeClasses = isActive 
+                    ? 'bg-white/15 text-white font-medium border-white/10' 
+                    : 'text-white/70 hover:text-white hover:bg-white/5 border-transparent';
+                
+                return `
+                    <a href="#${p.id}" onclick="navigateTo('${p.id}')" 
+                       class="px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 border ${activeClasses}">
+                        ${p.title}
+                    </a>
+                `;
+            }).join('');
+
+            dest.innerHTML = menuMarkup;
+            destMobile.innerHTML = appData.pages.map(p => `
+                <a href="#${p.id}" onclick="navigateTo('${p.id}')" 
+                   class="text-white text-lg font-syne hover:text-moss-300 transition-colors">
+                    ${p.title}
+                </a>
+            `).join('');
+
+            // Populates Navigation list within CMS panel too
+            renderCmsNavigationManager();
+        }
+
+        function updateNavigationHighlight() {
+            generateNavigation();
+        }
+
+        function toggleCMSPanel() {
+            const panel = document.getElementById('cmsPanel');
+            panel.classList.toggle('translate-x-full');
+        }
+
+        // Switch live visual inline page text formatting mode
+        function toggleInlineEditing() {
+            isEditingEnabled = !isEditingEnabled;
+            const btn = document.getElementById('inlineEditToggle');
+            const knob = document.getElementById('inlineEditToggleKnob');
+
+            if (isEditingEnabled) {
+                btn.className = 'w-12 h-6 rounded-full bg-moss-400 relative transition-colors duration-300';
+                knob.className = 'absolute top-1 left-7 w-4 h-4 rounded-full bg-[#0b100e] transition-transform duration-300';
+                showToast("WYSIWYG Mode Enabled. Click any text blocks directly on-screen!");
+                initEditableAreas();
+            } else {
+                btn.className = 'w-12 h-6 rounded-full bg-white/20 relative transition-colors duration-300';
+                knob.className = 'absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform duration-300';
+                disableEditableAreas();
+                showToast("Inline Editor Disabled.");
+            }
+        }
+
+        function initEditableAreas() {
+            document.querySelectorAll('[data-cms-field]').forEach(el => {
+                el.classList.add('editable-active');
+                el.setAttribute('contenteditable', 'true');
+            });
+        }
+
+        function disableEditableAreas() {
+            document.querySelectorAll('[data-cms-field]').forEach(el => {
+                el.classList.remove('editable-active');
+                el.removeAttribute('contenteditable');
+            });
+            document.getElementById('wysiwygToolbar').classList.add('hidden');
+        }
+
+        function makeEditable(el) {
+            if (!isEditingEnabled) return;
+            activeEditingBlock = el;
+            
+            const tb = document.getElementById('wysiwygToolbar');
+            tb.classList.remove('hidden');
+        }
+
+        function formatDoc(command, value = null) {
+            document.execCommand(command, false, value);
+        }
+
+        function saveActiveEditable() {
+            if (!activeEditingBlock) return;
+            
+            const pageId = activeEditingBlock.getAttribute('data-cms-page');
+            const field = activeEditingBlock.getAttribute('data-cms-field');
+            const pageObj = appData.pages.find(p => p.id === pageId);
+
+            if (pageObj) {
+                if (pageObj.template === 'richText') {
+                    pageObj.content = activeEditingBlock.innerHTML;
+                } else if (pageObj.content) {
+                    pageObj.content[field] = activeEditingBlock.innerHTML.trim();
+                }
+                saveToStorage();
+                showToast(`Saved layout updates locally.`);
+            }
+
+            document.getElementById('wysiwygToolbar').classList.add('hidden');
+            activeEditingBlock = null;
+        }
+
+        // CMS Navigation Management (Adding and Deleting Pages dynamically)
+        function renderCmsNavigationManager() {
+            const listContainer = document.getElementById('cmsPageList');
+            if (!listContainer) return;
+
+            listContainer.innerHTML = appData.pages.map(p => {
+                const isCore = ['home', 'gallery', 'blogs', 'facts', 'about'].includes(p.id);
+                return `
+                    <div class="flex items-center justify-between bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 text-xs">
+                        <div class="flex items-center gap-1.5">
+                            <i class="fa-solid ${isCore ? 'fa-bookmark text-moss-300' : 'fa-compass text-peach-200'}"></i>
+                            <span class="text-white font-medium">${p.title} (${p.template})</span>
+                        </div>
+                        ${!isCore ? `
+                            <button onclick="deleteCustomPage('${p.id}')" class="text-red-400 hover:text-red-500 hover:scale-105 transition-transform" title="Remove dynamic page from nav">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        ` : `
+                            <span class="text-[9px] text-white/30 tracking-widest uppercase font-bold">Core</span>
+                        `}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function deleteCustomPage(pageId) {
+            appData.pages = appData.pages.filter(p => p.id !== pageId);
+            saveToStorage();
+            generateNavigation();
+            if (activePageId === pageId) {
+                navigateTo('home');
+            }
+            showToast("Custom Page Removed from navigation.");
+        }
+
+        // Add dynamic navbar pages using beautiful templates
+        function createNewCMSPage() {
+            const titleInput = document.getElementById('newPageTitle');
+            const templateInput = document.getElementById('newPageTemplate');
+
+            const title = titleInput.value.trim();
+            const template = templateInput.value;
+
+            if (!title) {
+                showToast("Please provide a valid navigation label.", "error");
+                return;
+            }
+
+            const id = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            
+            if (appData.pages.some(p => p.id === id)) {
+                showToast("This item already exists in navigation.", "error");
+                return;
+            }
+
+            const newPage = {
+                id: id,
+                title: title,
+                template: template,
+                content: template === 'richText' ? `<h1>${title} Page</h1><p>Welcome to this newly created custom canvas. Feel free to edit inline using the CMS Engine.</p>` : {}
+            };
+
+            if (template === 'gallery') {
+                newPage.media = [
+                    { id: Date.now(), title: 'First Photo', url: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80' }
+                ];
+            }
+
+            appData.pages.push(newPage);
+            saveToStorage();
+            generateNavigation();
+            
+            titleInput.value = '';
+            showToast(`"${title}" Added to Navigation.`);
+            navigateTo(id);
+        }
+
+        // Core Image Customization Handler
+        function updateCoreLayoutImages() {
+            const homeHeroInput = document.getElementById('cmsHomeHeroImg').value.trim();
+            const aboutShowcaseInput = document.getElementById('cmsAboutImg').value.trim();
+
+            if (homeHeroInput) {
+                appData.images.homeHero = homeHeroInput;
+            }
+            if (aboutShowcaseInput) {
+                appData.images.aboutShowcase = aboutShowcaseInput;
+            }
+
+            saveToStorage();
+            showToast("Display layouts updated with new core imagery!");
+            navigateTo(activePageId); // Re-render active view to pull new images
+        }
+
+        // Facts Management
+        function addNewEcoFact() {
+            const titleInput = document.getElementById('newFactTitle');
+            const iconSelect = document.getElementById('newFactIcon');
+            const descInput = document.getElementById('newFactDesc');
+
+            const title = titleInput.value.trim();
+            const icon = iconSelect.value;
+            const fact = descInput.value.trim();
+
+            if (!title || !fact) {
+                showToast("Requires title and fact explanation.", "error");
+                return;
+            }
+
+            const factsPage = appData.pages.find(p => p.id === 'facts');
+            if (factsPage) {
+                factsPage.cards.push({
+                    id: Date.now(),
+                    title: title,
+                    icon: icon,
+                    fact: fact
+                });
+                saveToStorage();
+                showToast("Custom Fact card inserted!");
+                titleInput.value = '';
+                descInput.value = '';
+                navigateTo('facts');
+            }
+        }
+
+        function removeEcoFact(id) {
+            const factsPage = appData.pages.find(p => p.id === 'facts');
+            if (factsPage) {
+                factsPage.cards = factsPage.cards.filter(c => c.id !== id);
+                saveToStorage();
+                showToast("Fact card deleted.");
+                navigateTo('facts');
+            }
+        }
+
+        // Add dynamic images to current slider / gallery via dashboard
+        function addNewMediaToGallery() {
+            const urlInput = document.getElementById('newMediaUrl');
+            const titleInput = document.getElementById('newMediaCaption');
+
+            const url = urlInput.value.trim();
+            const title = titleInput.value.trim() || 'Forest Capture';
+
+            if (!url) {
+                showToast("Please enter a valid Image URL.", "error");
+                return;
+            }
+
+            const galleryPage = appData.pages.find(p => p.id === 'gallery');
+            if (galleryPage) {
+                galleryPage.media.push({
+                    id: Date.now(),
+                    title: title,
+                    url: url
+                });
+                saveToStorage();
+                showToast("Injected asset into Photo Gallery.");
+                urlInput.value = '';
+                titleInput.value = '';
+                navigateTo('gallery');
+            }
+        }
+
+        function removeGalleryItem(id) {
+            const galleryPage = appData.pages.find(p => p.id === 'gallery');
+            if (galleryPage) {
+                galleryPage.media = galleryPage.media.filter(item => item.id !== id);
+                saveToStorage();
+                showToast("Item deleted.");
+                navigateTo('gallery');
+            }
+        }
+
+        // Add dynamic articles on deep content pages
+        function addNewBlogPost() {
+            const titleIn = document.getElementById('newBlogTitle').value.trim();
+            const summaryIn = document.getElementById('newBlogSummary').value.trim();
+            const imageIn = document.getElementById('newBlogImage').value.trim();
+
+            if (!titleIn || !summaryIn) {
+                showToast("Requires title and summary excerpt.", "error");
+                return;
+            }
+
+            const imgUrl = imageIn || 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80';
+            const blogPage = appData.pages.find(p => p.id === 'blogs');
+
+            if (blogPage) {
+                const newId = `blog-${Date.now()}`;
+                blogPage.articles.push({
+                    id: newId,
+                    title: titleIn,
+                    excerpt: summaryIn,
+                    image: imgUrl,
+                    body: `<h2>${titleIn}</h2><p>${summaryIn}</p><p>This is a custom interactive blog draft layout. Double click inside CMS to enrich formatting layers.</p>`
+                });
+                
+                saveToStorage();
+                showToast("Created a new Blog post card!");
+                
+                document.getElementById('newBlogTitle').value = '';
+                document.getElementById('newBlogSummary').value = '';
+                document.getElementById('newBlogImage').value = '';
+                
+                navigateTo('blogs');
+            }
+        }
+
+        function removeBlogPost(id) {
+            const blogPage = appData.pages.find(p => p.id === 'blogs');
+            if (blogPage) {
+                blogPage.articles = blogPage.articles.filter(art => art.id !== id);
+                saveToStorage();
+                showToast("Blog post deleted.");
+                navigateTo('blogs');
+            }
+        }
+
+        function viewFullPost(id) {
+            const blogPage = appData.pages.find(p => p.id === 'blogs');
+            if (!blogPage) return;
+            const article = blogPage.articles.find(a => a.id === id);
+            if (!article) return;
+
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 z-50 bg-[#020503]/90 flex items-center justify-center p-4 backdrop-blur-xl animate-fade';
+            modal.innerHTML = `
+                <div class="glass-panel-heavy max-w-2xl w-full max-h-[85vh] overflow-y-auto rounded-[2rem] p-8 md:p-12 border border-white/10 relative shadow-2xl">
+                    <button onclick="this.closest('.fixed').remove()" class="absolute top-6 right-6 w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center transition-colors text-white">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                    <div class="w-full h-64 rounded-2xl overflow-hidden mb-6">
+                        <img src="${article.image}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rich-text-content" data-cms-field="body" data-cms-page="blogs" onclick="makeEditable(this)">
+                        ${article.body}
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // --- VERCEL DEPLOY WEBHOOK INTEGRATION ---
+        function saveWebhookSettings() {
+            const val = document.getElementById('vercelWebhookUrl').value.trim();
+            vercelWebhookUrl = val;
+            localStorage.setItem('canopy_vercel_webhook', val);
+            
+            updateWebhookUI();
+            showToast("Vercel Deploy Hook saved successfully!");
+        }
+
+        function updateWebhookUI() {
+            const indicator = document.getElementById('webhookIndicator');
+            if (vercelWebhookUrl) {
+                indicator.innerText = "Deploy Hook Active";
+                indicator.className = "text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+            } else {
+                indicator.innerText = "Inactive";
+                indicator.className = "text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-zinc-500/10 text-zinc-400 border border-zinc-500/20";
+            }
+        }
+
+        async function triggerVercelRedeploy() {
+            if (!vercelWebhookUrl) {
+                console.log("No Vercel Deploy Hook configured. Skipping Vercel rebuild trigger.");
+                return;
+            }
+
+            try {
+                // Post request securely directly to Vercel Deploy Hook callback url
+                const res = await fetch(vercelWebhookUrl, { method: 'POST' });
+                if (res.ok) {
+                    showToast("Callback Triggered! Vercel is spinning up a new production deploy.");
+                } else {
+                    throw new Error("Failed trigger status " + res.status);
+                }
+            } catch (e) {
+                console.error("Vercel Hook Error:", e);
+                showToast("Failed to signal Vercel callback hook directly.", "error");
+            }
+        }
+
+        // --- GITHUB OAUTH DYNAMIC AUTOMATED CALLBACK ---
+        function loginWithGitHubOAuth() {
+            const redirectUri = window.location.origin + window.location.pathname;
+            const oauthUrl = `https://github.com/login/oauth/authorize?client_id=${OAUTH_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=repo`;
+            window.location.href = oauthUrl;
+        }
+
+        async function handleOAuthCallback(code) {
+            // Display gorgeous authorization backdrop modal
+            const loader = document.getElementById('oauthLoadingModal');
+            loader.classList.remove('hidden');
+
+            try {
+                // Call secure CORS proxy gateway to exchange code securely for OAuth Access Token
+                const response = await fetch(OAUTH_GATEWAY_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        client_id: OAUTH_CLIENT_ID,
+                        code: code
+                    })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.access_token) {
+                        gitConfig.token = result.access_token;
+                        localStorage.setItem('canopy_git_token', result.access_token);
+                        document.getElementById('gitToken').value = result.access_token;
+
+                        showToast("GitHub Authorization successful! Connected secure session.");
+                        updateGitStatusUI('connected');
+                    } else {
+                        throw new Error("No token returned in gateway response payload.");
+                    }
+                } else {
+                    throw new Error("Failed secure handshake on proxy exchange server.");
+                }
+            } catch (err) {
+                console.error("OAuth Exchange Fail:", err);
+                showToast("Failed to negotiate OAuth Callback handshake.", "error");
+                updateGitStatusUI('error');
+            } finally {
+                loader.classList.add('hidden');
+                // Clean the browser URL so '?code=...' is removed gracefully from address bar
+                window.history.replaceState({}, document.title, window.location.pathname);
+                toggleCMSPanel();
+            }
+        }
+
+        // --- GITHUB REAL-TIME GIT CMS INTEGRATION SYSTEM ---
+        // Load settings from local storage on startup
+        function loadGitSettings() {
+            document.getElementById('gitUser').value = gitConfig.user;
+            document.getElementById('gitRepo').value = gitConfig.repo;
+            document.getElementById('gitBranch').value = gitConfig.branch;
+            document.getElementById('gitToken').value = gitConfig.token;
+            document.getElementById('vercelWebhookUrl').value = vercelWebhookUrl;
+
+            updateCMSInputs();
+            updateWebhookUI();
+
+            if (gitConfig.user && gitConfig.repo && gitConfig.token) {
+                updateGitStatusUI('connected');
+            }
+        }
+
+        function updateCMSInputs() {
+            document.getElementById('cmsHomeHeroImg').value = appData.images.homeHero;
+            document.getElementById('cmsAboutImg').value = appData.images.aboutShowcase;
+        }
+
+        // Authenticate, save, and fetch canopy-content.json from repository
+        async function saveAndFetchFromGitHub() {
+            const user = document.getElementById('gitUser').value.trim();
+            const repo = document.getElementById('gitRepo').value.trim();
+            const branch = document.getElementById('gitBranch').value.trim() || 'main';
+            const token = document.getElementById('gitToken').value.trim();
+
+            if (!user || !repo || !token) {
+                showToast("Please provide user, repo name and valid token.", "error");
+                return;
+            }
+
+            // Save variables to LocalStorage securely in user browser
+            localStorage.setItem('canopy_git_user', user);
+            localStorage.setItem('canopy_git_repo', repo);
+            localStorage.setItem('canopy_git_branch', branch);
+            localStorage.setItem('canopy_git_token', token);
+
+            gitConfig.user = user;
+            gitConfig.repo = repo;
+            gitConfig.branch = branch;
+            gitConfig.token = token;
+
+            updateGitStatusUI('loading');
+
+            try {
+                // Fetch existing content file schema from GitHub to retrieve content and SHA key
+                const response = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${gitConfig.filePath}?ref=${branch}`, {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github+json'
+                    }
+                });
+
+                if (response.status === 200) {
+                    const data = await response.json();
+                    gitConfig.fileSha = data.sha;
+                    
+                    // Decode base64 file contents returned by GitHub
+                    const decodedContent = decodeURIComponent(escape(atob(data.content)));
+                    const parsedData = JSON.parse(decodedContent);
+
+                    if (parsedData.pages) {
+                        appData = parsedData;
+                        if (!appData.images) {
+                            appData.images = JSON.parse(JSON.stringify(defaultAppContent.images));
+                        }
+                        saveToStorage();
+                        navigateTo(activePageId);
+                        showToast("Successfully synched and loaded database from GitHub!");
+                        updateGitStatusUI('connected');
+                    } else {
+                        throw new Error("Invalid structure.");
+                    }
+                } else if (response.status === 404) {
+                    // File does not exist yet; we will create it upon next commit push
+                    gitConfig.fileSha = '';
+                    showToast("No database file found in repo yet. Click 'Push & Deploy' to create it!");
+                    updateGitStatusUI('ready_to_create');
+                } else {
+                    throw new Error("Failed validation status " + response.status);
+                }
+            } catch (error) {
+                console.error(error);
+                showToast("Failed to connect with GitHub repository. Check credentials & scopes.", "error");
+                updateGitStatusUI('error');
+            }
+        }
+
+        // PUSH AND COMMIT DATA TO GITHUB (Triggers Automatic Vercel Redeployment)
+        async function pushToGitHubAndDeploy() {
+            if (!gitConfig.user || !gitConfig.repo || !gitConfig.token) {
+                showToast("Missing Git workspace details.", "error");
+                return;
+            }
+
+            updateGitStatusUI('pushing');
+            showToast("Preparing Git push sequence...");
+
+            try {
+                // Convert current client app JSON state to raw string and encode to Base64 (supporting Unicode characters)
+                const contentStr = JSON.stringify(appData, null, 2);
+                const base64Content = btoa(unescape(encodeURIComponent(contentStr)));
+
+                const payload = {
+                    message: "cms: update live layout and trigger vercel redeploy [skip ci]",
+                    content: base64Content,
+                    branch: gitConfig.branch
+                };
+
+                // Include previous file SHA key if file is already present on server (required to bypass GitHub file overwrite checks)
+                if (gitConfig.fileSha) {
+                    payload.sha = gitConfig.fileSha;
+                }
+
+                const response = await fetch(`https://api.github.com/repos/${gitConfig.user}/${gitConfig.repo}/contents/${gitConfig.filePath}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${gitConfig.token}`,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/vnd.github+json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.status === 200 || response.status === 201) {
+                    const result = await response.json();
+                    gitConfig.fileSha = result.content.sha; // Keep SHA key synched
+                    
+                    showToast("Pushed successfully! Triggering callback deploy webhook...");
+                    updateGitStatusUI('deployed_success');
+
+                    // Fire the Vercel Deploy Webhook directly to compile changes live
+                    await triggerVercelRedeploy();
+                } else {
+                    const errResponse = await response.json();
+                    throw new Error(errResponse.message || "Failed update.");
+                }
+            } catch (error) {
+                console.error(error);
+                showToast("Failed to commit changes: " + error.message, "error");
+                updateGitStatusUI('connected');
+            }
+        }
+
+        function updateGitStatusUI(status) {
+            const card = document.getElementById('gitStatusCard');
+            const icon = document.getElementById('gitStatusIcon');
+            const title = document.getElementById('gitStatusTitle');
+            const desc = document.getElementById('gitStatusDesc');
+            const pushBtn = document.getElementById('btnPushDeploy');
+            const indicator = document.getElementById('syncIndicator');
+
+            switch (status) {
+                case 'connected':
+                    card.className = "glass-panel p-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/5";
+                    icon.innerHTML = `<i class="fa-solid fa-cloud-check text-emerald-400"></i>`;
+                    title.innerText = "Linked with GitHub";
+                    desc.innerText = `Connected to repository [${gitConfig.user}/${gitConfig.repo}] on branch [${gitConfig.branch}]. Edits are ready to be deployed globally to Vercel.`;
+                    pushBtn.removeAttribute('disabled');
+                    pushBtn.className = "bg-gradient-to-r from-moss-400 to-emerald-300 hover:opacity-95 text-[#0b100e] font-semibold text-xs py-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-lg";
+                    indicator.innerText = "Synched & Protected";
+                    indicator.className = "text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+                    break;
+
+                case 'ready_to_create':
+                    card.className = "glass-panel p-4 rounded-2xl border border-blue-500/30 bg-blue-500/5";
+                    icon.innerHTML = `<i class="fa-solid fa-circle-plus text-blue-400"></i>`;
+                    title.innerText = "Repository Ready";
+                    desc.innerText = `Connected to branch, but canopy-content.json does not exist yet. Click Push below to commit it and start tracking.`;
+                    pushBtn.removeAttribute('disabled');
+                    pushBtn.className = "bg-gradient-to-r from-moss-400 to-emerald-300 hover:opacity-95 text-[#0b100e] font-semibold text-xs py-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-lg";
+                    indicator.innerText = "Synched (New File)";
+                    indicator.className = "text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20";
+                    break;
+
+                case 'loading':
+                    card.className = "glass-panel p-4 rounded-2xl border border-yellow-500/30 bg-yellow-500/5";
+                    icon.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin text-yellow-400"></i>`;
+                    title.innerText = "Authenticating...";
+                    desc.innerText = "Verifying Personal Access Token and connecting with your GitHub repository...";
+                    break;
+
+                case 'pushing':
+                    card.className = "glass-panel p-4 rounded-2xl border border-blue-500/30 bg-blue-500/5";
+                    icon.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-blue-400"></i>`;
+                    title.innerText = "Deploying Changes...";
+                    desc.innerText = "Building package, encoding layout assets, and pushing direct Git commit over API...";
+                    break;
+
+                case 'deployed_success':
+                    card.className = "glass-panel p-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/5";
+                    icon.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i>`;
+                    title.innerText = "Successfully Pushed!";
+                    desc.innerText = `A commit was pushed to your repo! Vercel is building the live site updates. Ready for next edits.`;
+                    break;
+
+                case 'error':
+                    card.className = "glass-panel p-4 rounded-2xl border border-red-500/30 bg-red-500/5";
+                    icon.innerHTML = `<i class="fa-solid fa-circle-xmark text-red-400"></i>`;
+                    title.innerText = "Connection Failed";
+                    desc.innerText = "Invalid token, scope error, or wrong repo name. Ensure your GitHub Personal Access Token has 'repo' scopes checked.";
+                    pushBtn.setAttribute('disabled', 'true');
+                    pushBtn.className = "bg-gradient-to-r from-moss-500 to-emerald-400 opacity-50 cursor-not-allowed text-[#0b100e] font-semibold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-lg";
+                    indicator.innerText = "Error/Disconnected";
+                    indicator.className = "text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/20";
+                    break;
+            }
+        }
+
+        // Backup/Manual Export files
+        function exportStateAsJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "canopy-cms-content.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Downloaded Local State Backup JSON.");
+        }
+
+        function triggerImport() {
+            document.getElementById('importStateFile').click();
+        }
+
+        function importStateJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (parsed.pages && Array.isArray(parsed.pages)) {
+                        appData = parsed;
+                        if (!appData.images) {
+                            appData.images = JSON.parse(JSON.stringify(defaultAppContent.images));
+                        }
+                        saveToStorage();
+                        showToast("CMS State Restored Successfully!");
+                        generateNavigation();
+                        navigateTo(activePageId);
+                    } else {
+                        showToast("Invalid config payload format.", "error");
+                    }
+                } catch (err) {
+                    showToast("Failed to parse JSON configuration file.", "error");
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Custom Confirm Modals
+        let nextConfirmAction = null;
+        function showResetConfirmation() {
+            document.getElementById('confirmModalTitle').innerText = "Reset to Defaults?";
+            document.getElementById('confirmModalMessage').innerText = "Are you sure? This will wipe your local configurations and restore the clean initial theme templates.";
+            nextConfirmAction = executeReset;
+            document.getElementById('confirmModal').classList.remove('hidden');
+        }
+
+        function closeConfirmModal() {
+            document.getElementById('confirmModal').classList.add('hidden');
+            nextConfirmAction = null;
+        }
+
+        document.getElementById('confirmModalBtn').addEventListener('click', () => {
+            if (nextConfirmAction) {
+                nextConfirmAction();
+            }
+            closeConfirmModal();
+        });
+
+        function executeReset() {
+            appData = JSON.parse(JSON.stringify(defaultAppContent));
+            saveToStorage();
+            generateNavigation();
+            navigateTo('home');
+            showToast("System returned to initial pristine settings.");
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            menu.classList.toggle('hidden');
+            
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars';
+            } else {
+                icon.className = 'fa-solid fa-xmark';
+            }
+        }
+
+        // Canvas Particle Mechanics (Starry Night Environment Generator)
+        const canvas = document.getElementById('starfieldCanvas');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let mouse = { x: null, y: null };
+
+        function initStars() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            stars = [];
+            const count = Math.min(Math.floor(canvas.width / 8), 150);
+
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 1.5,
+                    opacity: Math.random(),
+                    speed: (Math.random() * 0.2) + 0.05,
+                    direction: Math.random() > 0.5 ? 1 : -1
+                });
+            }
+        }
+
+        function animateStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            stars.forEach(star => {
+                star.opacity += star.speed * 0.015 * star.direction;
+                if (star.opacity > 1 || star.opacity < 0.1) {
+                    star.direction *= -1;
+                }
+
+                ctx.fillStyle = `rgba(255, 235, 222, ${star.opacity})`;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                star.y -= 0.1;
+                if (star.y < 0) star.y = canvas.height;
+                
+                if (mouse.x && mouse.y) {
+                    const dx = mouse.x - star.x;
+                    const dy = mouse.y - star.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 100) {
+                        star.x -= dx * 0.02;
+                        star.y -= dy * 0.02;
+                    }
+                }
+            });
+
+            requestAnimationFrame(animateStars);
+        }
+
+        window.addEventListener('resize', () => {
+            initStars();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        // Initialize App on Window Load
+        window.onload = function() {
+            initStars();
+            animateStars();
+            loadGitSettings();
+            
+            // Check if loaded with an OAuth Callback code URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const callbackCode = urlParams.get('code');
+            if (callbackCode) {
+                handleOAuthCallback(callbackCode);
+            } else {
+                const hash = window.location.hash.substring(1);
+                if (hash && appData.pages.some(p => p.id === hash)) {
+                    activePageId = hash;
+                }
+                generateNavigation();
+                navigateTo(activePageId);
+            }
+        }
+    </script>
+</body>
+</html>
